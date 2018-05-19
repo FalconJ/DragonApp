@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgound_old"
+    android:padding="16dp"
+    tools:context="com.example.mauricio.ddhelper.Fragment.ProficienciesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Character name"
+            android:textColor="@color/colorNegro"
+            android:textSize="22dp"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profciencies/Languages"
+            android:textColor="@color/colorNegro"
+            android:textSize="25dp"/>
+
+
+
+        <ListView
+            android:id="@+id/proList"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"></ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Pro/Lan"
+                android:ems="10"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:textColor="@color/colorBlanco"
+                android:backgroundTint="@color/transGris"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

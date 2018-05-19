@@ -38,4 +38,6 @@ public abstract class DndDatabase extends RoomDatabase{
 
     // The associated DAOs for the database
     public abstract CharacterDao characterDao();
+
+
 }

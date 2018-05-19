@@ -1,6 +1,7 @@
 package com.example.falconp.dndapp.data.database;
 
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -15,6 +16,11 @@ public interface CharacterDao {
      *  @param playerId The player id you want characters for
      *  @return Character list of the player
      */
+
+    @Query("SELECT * from character")
+    LiveData<List<CharacterEntry>> getAllCharacters();
+
+
     @Query("SELECT * FROM character WHERE playerId = :playerId")
     List<CharacterEntry> getCharacterById(int playerId);
 
@@ -27,5 +33,8 @@ public interface CharacterDao {
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void bulkInssert(CharacterEntry... characters);
+
+    @Insert
+    void insert(CharacterEntry character);
 
 }

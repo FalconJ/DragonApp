@@ -5,6 +5,17 @@
     <color name="colorAccent">#484d48</color>
     <color name="colorPrimaryLight">#B3E5FC</color>
 
+    <color name="colorNegro">#000000</color>
+    
+    <color name="colorBlanco">#ffffff</color>
+    
+    <color name="transGris">#d0696464</color>
+
+
+
+
+    
+
     <color name="white">#FFFFFF</color>
 
     <color name="primary_text">#212121</color>

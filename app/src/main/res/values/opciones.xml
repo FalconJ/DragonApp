@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="races">
+        <item>Human</item>
+        <item>Dwarf</item>
+        <item>Elf</item>
+
+    </string-array>
+
+    <string-array name="classes">
+        <item>Paladin</item>
+        <item>Druid</item>
+        <item>Rogue</item>
+
+    </string-array>
+
+    <string-array name="alignments">
+        <item>Lawful good</item>
+        <item>Lawful neutral</item>
+        <item>Lawful evil</item>
+        <item>Neutral good</item>
+        <item>Neutral</item>
+        <item>Neutral evil</item>
+        <item>Chaotic good</item>
+        <item>Chaotic neutral</item>
+        <item>Chaotic evil</item>
+
+    </string-array>
+
+    <string-array name="backgrounds">
+        <item>Acolyte</item>
+        <item>Charlatan</item>
+        <item>Entertainer</item>
+
+    </string-array>
+
+    <string-array name="spells">
+        <item>Burning Hands</item>
+        <item>Ray of Sickness</item>
+        <item>Magic Missile</item>
+
+    </string-array>
+
+    <string-array name="skills">
+        <item>Acrobatics</item>
+        <item>Animal Handling</item>
+        <item>Arcana</item>
+        <item>Athletics</item>
+        <item>Deception</item>
+        <item>History</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Investigation</item>
+        <item>Medicine</item>
+        <item>Nature</item>
+        <item>Perception</item>
+        <item>Performance</item>
+        <item>Persuasion</item>
+        <item>Religion</item>
+        <item>Sleght Of Hand</item>
+        <item>Stealth</item>
+        <item>Survival</item>
+    </string-array>
+
+</resources>

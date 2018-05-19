@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_charac"
+            android:icon="@drawable/icon_character"
+            android:title="My Characteres"
+            />
+        <item
+            android:id="@+id/nav_camp"
+            android:icon="@drawable/ic_icon_adventure"
+            android:title="My Campaings" />
+        <item
+            android:id="@+id/nav_ficamp"
+            android:icon="@drawable/ic_icon_find"
+            android:title="Find Campaing" />
+    </group>
+
+    <item android:title="Create">
+        <menu>
+            <item
+                android:id="@+id/nav_newchara"
+                android:icon="@drawable/icon_character"
+                android:title="New Character" />
+            <item
+                android:id="@+id/nav_newcamp"
+                android:icon="@drawable/ic_icon_new"
+                android:title="New Campaing" />
+        </menu>
+    </item>
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Exit" />
+        </menu>
+    </item>
+
+</menu>
