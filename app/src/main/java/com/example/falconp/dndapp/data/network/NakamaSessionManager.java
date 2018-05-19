@@ -193,18 +193,53 @@ public class NakamaSessionManager {
     }
 
     public void createMatch(){
-        final MatchCreateMessage msg = MatchCreateMessage.Builder.build();
-        Deferred<Match> match = new Deferred<>();
+        final CollatedMessage<Match> msg = MatchCreateMessage.Builder.build();
+        Deferred<Match> deferred = client.send(msg);
 
-        client.send(msg)
-        .addCallback(new Callback<Match, Match>() {
+        deferred
+        .addCallbackDeferring(new Callback<Deferred<Boolean>, Match>() {
             @Override
-            public Match call(Match match) {
+            public Deferred<Boolean> call(Match match) throws Exception{
                 newMatch = match;
-                return match;
+                final UncollatedMessage data = MatchDataSendMessage.Builder
+                        .newBuilder(match.getId())
+                        .data("test".getBytes())
+                        .build();
+                return client.send(data);
             }
         });
 
+        try {
+            deferred.join(2000);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void joinMatch(String matchId){
+        final CollatedMessage<ResultSet<Match>> matchJoin = MatchesJoinMessage.Builder.newBuilder().matchId(matchId).build();
+        final Deferred<ResultSet<Match>> deferred = client.send(matchJoin);
+
+        deferred
+                .addCallbackDeferring(new Callback<Deferred<Boolean>, ResultSet<Match>>() {
+                    @Override
+                    public Deferred<Boolean> call(ResultSet<Match> matches) throws Exception {
+
+                        final UncollatedMessage data = MatchDataSendMessage.Builder
+                                .newBuilder(matches.getResults().get(0).getId())
+                                .data("Test".getBytes())
+                                .build();
+                        return client.send(data);
+                    }
+                });
+        try {
+            deferred.join(2000);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     public Match getNewMatch() {

@@ -112,10 +112,12 @@ public class LogInActivity extends AppCompatActivity {
 
     private void signOut() {
         mSessionManager.createMatch();
-        Match match = mSessionManager.getNewMatch();
-        mSessionManager.logOut();
-        mAuth.signOut();
-        updateUI(null);
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        mLogInBinding.status.setText(mSessionManager.getNewMatch().getId());
+        //mSessionManager.logOut();
+        //mAuth.signOut();
+        System.out.println("Logged out");
+        //updateUI(null);
     }
 
     private boolean validateForm() {
