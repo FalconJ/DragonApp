@@ -9,16 +9,55 @@ import com.heroiclabs.nakama.Error;
 import com.heroiclabs.nakama.Error.ErrorCode;
 import com.stumbleupon.async.*;
 
+import java.util.List;
+
 public class NakamaSessionManager {
     private final Client client;
     private final Callback<Error, Error> errCallback;
     private Session session;
+    private Match newMatch;
 
     public NakamaSessionManager(){
         client = DefaultClient.builder("5LwHhurhMM")
                 .host("104.196.168.44")
                 .port(7350)
                 .ssl(false)
+                .listener(new ClientListener() {
+                    @Override
+                    public void onDisconnect() {
+
+                    }
+
+                    @Override
+                    public void onTopicMessage(TopicMessage message) {
+
+                    }
+
+                    @Override
+                    public void onTopicPresence(TopicPresence presence) {
+
+                    }
+
+                    @Override
+                    public void onMatchmakeMatched(MatchmakeMatched matched) {
+
+                    }
+
+                    @Override
+                    public void onMatchData(MatchData matchData) {
+
+                    }
+
+                    @Override
+                    public void onMatchPresence(MatchPresence matchPresence) {
+
+                    }
+
+                    @Override
+                    public void onNotifications(List<Notification> notifications) {
+
+                    }
+                })
                 .build();
 
         errCallback = new Callback<Error, Error>() {
@@ -151,5 +190,24 @@ public class NakamaSessionManager {
                         return session;
                     }
                 });
+    }
+
+    public void createMatch(){
+        final MatchCreateMessage msg = MatchCreateMessage.Builder.build();
+        Deferred<Match> match = new Deferred<>();
+
+        client.send(msg)
+        .addCallback(new Callback<Match, Match>() {
+            @Override
+            public Match call(Match match) {
+                newMatch = match;
+                return match;
+            }
+        });
+
+    }
+
+    public Match getNewMatch() {
+        return newMatch;
     }
 }

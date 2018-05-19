@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.heroiclabs.nakama.Match;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -110,6 +111,8 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void signOut() {
+        mSessionManager.createMatch();
+        Match match = mSessionManager.getNewMatch();
         mSessionManager.logOut();
         mAuth.signOut();
         updateUI(null);
