@@ -1,10 +1,13 @@
 package com.example.falconp.dndapp.data.database;
 
 
+import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 /**
@@ -29,15 +32,41 @@ public abstract class DndDatabase extends RoomDatabase{
                         context.getApplicationContext(),
                         DndDatabase.class,
                         DndDatabase.DATABASE_NAME)
-                        .build();
+                        .addCallback(sRoomDatabaseCallback).build();
                 Log.d(LOG_TAG, "Made new database");
             }
         }
         return sInstance;
     }
 
+    private static RoomDatabase.Callback sRoomDatabaseCallback =
+            new RoomDatabase.Callback(){
+
+                @Override
+                public void onOpen (@NonNull SupportSQLiteDatabase db){
+                    super.onOpen(db);
+                    new PopulateDbAsync(sInstance).execute();
+                }
+            };
+
     // The associated DAOs for the database
     public abstract CharacterDao characterDao();
 
 
+    private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
+
+        private final CharacterDao mDao;
+
+        PopulateDbAsync(DndDatabase p0) {
+            mDao = p0.characterDao();
+        }
+
+        @Override
+        protected Void doInBackground(final Void... params) {
+
+
+
+            return null;
+        }
+    }
 }

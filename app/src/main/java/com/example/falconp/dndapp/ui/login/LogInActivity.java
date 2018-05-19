@@ -1,5 +1,6 @@
 package com.example.falconp.dndapp.ui.login;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.falconp.dndapp.CharacterListActivity;
+import com.example.falconp.dndapp.MenuActivity;
+import com.example.falconp.dndapp.NewCharacterActivity;
 import com.example.falconp.dndapp.R;
 import com.example.falconp.dndapp.data.network.NakamaSessionManager;
 import com.example.falconp.dndapp.databinding.ActivityLoginBinding;
@@ -170,6 +174,9 @@ public class LogInActivity extends AppCompatActivity {
                                 mLogInBinding.fieldEmail.getText().toString(),
                                 mLogInBinding.fieldPassword.getText().toString()
                         );
+                            Intent intent = new Intent(LogInActivity.this, NewCharacterActivity.class);
+
+                        LogInActivity.this.startActivity(intent);
                     }
                 }
         );

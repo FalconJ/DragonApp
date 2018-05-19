@@ -110,8 +110,8 @@ public class MenuActivity extends AppCompatActivity
             miFragment=new FindCamFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_newchara) {
-            miFragment=new NewCharacterFragment2();
-            fragmentSeleccionado=true;
+            Intent intent = new Intent(MenuActivity.this, NewCharacterActivity.class);
+            MenuActivity.this.startActivity(intent);
 
         } else if (id == R.id.nav_newcamp) {
             miFragment=new NewCampaingFragment();

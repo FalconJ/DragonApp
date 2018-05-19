@@ -169,6 +169,10 @@ public class CharacterEntry {
         this.saveCha = saveCha;
     }
 
+    public CharacterEntry() {
+
+    }
+
     public int getId() {
         return id;
     }
