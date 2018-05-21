@@ -115,7 +115,7 @@ public class CharacterEntry {
         this.initiative = initiative;
         this.speed = speed;
         this.hp = hp;
-        this.skill_1 = skill_1;
+        //this.skill_1 = skill_1;
         this.skill_2 = skill_2;
         this.saveStr = saveStr;
         this.saveDex = saveDex;
@@ -123,6 +123,11 @@ public class CharacterEntry {
         this.saveInt = saveInt;
         this.saveWis = saveWis;
         this.saveCha = saveCha;
+    }
+
+    @Ignore
+    public CharacterEntry(){
+
     }
 
     // Constructor used by Room to create CharacterEntries

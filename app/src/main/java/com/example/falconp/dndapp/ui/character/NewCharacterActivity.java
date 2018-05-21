@@ -18,7 +18,7 @@ public class NewCharacterActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "NEW_CHARACTER";
 
-    CharacterEntry newCharacter;
+    CharacterEntry newCharacter = new CharacterEntry();
     CharacterEntry characterPrueba;
     Spinner spinRace, spinClass, spinAlignment, spinBackground,spinSkills1,spinSkills2, spinSpell1,spinSpell2;
     Button create,butstr,butdec,butcon,butint,butwis,butcha;
