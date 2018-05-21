@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="60dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CharacterName"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"/>
+                <EditText
+                    android:id="@+id/textChaName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Race"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"/>
+                <Spinner
+                    android:id="@+id/spinRace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Class"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"
+                    android:paddingLeft="35dp"/>
+                <Spinner
+                    android:id="@+id/spinClass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alignment"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"/>
+                <Spinner
+                    android:id="@+id/spinAlignment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Backgound"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"/>
+                <Spinner
+                    android:id="@+id/spinBackgound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proficiency Skills"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Spinner
+                        android:id="@+id/spinSkill1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <Spinner
+                        android:id="@+id/spinSkill2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Strength:       "
+                        android:textColor="@color/colorNegro"
+                        android:textSize="18dp"
+                        android:gravity="start"/>
+                    <EditText
+                        android:id="@+id/numStr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/butStr"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="@color/colorBlanco"
+                        android:backgroundTint="@color/transGris"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dexterity:      "
+                        android:textColor="@color/colorNegro"
+                        android:textSize="18dp"
+                        android:gravity="start"/>
+                    <EditText
+                        android:id="@+id/numDex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/butDex"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="@color/colorBlanco"
+                        android:backgroundTint="@color/transGris"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Constitution:"
+                        android:textColor="@color/colorNegro"
+                        android:textSize="18dp"
+                        android:gravity="start"/>
+                    <EditText
+                        android:id="@+id/numCon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/butCon"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="@color/colorBlanco"
+                        android:backgroundTint="@color/transGris"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Intelligence: "
+                        android:textColor="@color/colorNegro"
+                        android:textSize="18dp"
+                        android:gravity="start"/>
+                    <EditText
+                        android:id="@+id/numInt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/butInt"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="@color/colorBlanco"
+                        android:backgroundTint="@color/transGris"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wisdom:       "
+                        android:textColor="@color/colorNegro"
+                        android:textSize="18dp"
+                        android:gravity="start"/>
+                    <EditText
+                        android:id="@+id/numWis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/butWis"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="@color/colorBlanco"
+                        android:backgroundTint="@color/transGris"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Charisma:     "
+                        android:textColor="@color/colorNegro"
+                        android:textSize="18dp"
+                        android:gravity="start"/>
+                    <EditText
+                        android:id="@+id/numCha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/butCha"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="@color/colorBlanco"
+                        android:backgroundTint="@color/transGris"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Your Spells:"
+                    android:textColor="@color/colorNegro"
+                    android:textSize="18dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Spinner
+                        android:id="@+id/spinSpell1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <Spinner
+                        android:id="@+id/spinSpell2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/butCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Create"
+                android:textColor="@color/colorBlanco"
+                android:backgroundTint="@color/transGris" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

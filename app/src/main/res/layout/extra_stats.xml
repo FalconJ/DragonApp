@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/extra_stats"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/detail_accent_pane_background"
+        android:paddingBottom="@dimen/forecast_detail_vertical_padding"
+        android:paddingEnd="@dimen/forecast_detail_horizontal_padding"
+        android:paddingLeft="@dimen/forecast_detail_horizontal_padding"
+        android:paddingRight="@dimen/forecast_detail_horizontal_padding"
+        android:paddingStart="@dimen/forecast_detail_horizontal_padding"
+        android:paddingTop="@dimen/forecast_detail_vertical_padding">
+
+        <!-- This guideline divides the layout into a left and right half and is used for alignment -->
+        <android.support.constraint.Guideline
+            android:id="@+id/horizontal_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <!-- Strength label -->
+        <TextView
+            android:id="@+id/strength_label"
+            style="@style/DetailLabel"
+            android:layout_height="21dp"
+            android:text="@string/character_strength"
+            app:layout_constraintBottom_toTopOf="@+id/dexterity_label"
+            app:layout_constraintEnd_toStartOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Character Strength -->
+        <TextView
+            android:id="@+id/char_strength"
+            style="@style/ExtraWeatherMeasurement"
+            app:layout_constraintBottom_toBottomOf="@+id/strength_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="6" />
+
+        <!-- Dexterity label -->
+        <TextView
+            android:id="@+id/dexterity_label"
+            style="@style/DetailLabel"
+            android:text="@string/character_dexterity"
+            app:layout_constraintBottom_toTopOf="@+id/constitution_label"
+            app:layout_constraintEnd_toStartOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/strength_label" />
+
+        <!-- Character Dexterity -->
+        <TextView
+            android:id="@+id/char_dexterity"
+            style="@style/ExtraWeatherMeasurement"
+            app:layout_constraintBottom_toBottomOf="@+id/dexterity_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="7" />
+
+        <!-- Constitution label -->
+        <TextView
+            android:id="@+id/constitution_label"
+            style="@style/DetailLabel"
+            android:text="@string/character_constitution"
+            app:layout_constraintBottom_toTopOf="@+id/intelligence_label"
+            app:layout_constraintEnd_toStartOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dexterity_label" />
+
+        <!-- Character Constitution -->
+        <TextView
+            android:id="@+id/char_constitution"
+            style="@style/ExtraWeatherMeasurement"
+            app:layout_constraintBottom_toBottomOf="@+id/constitution_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="8" />
+
+        <!-- Intelligence label -->
+        <TextView
+            android:id="@+id/intelligence_label"
+            style="@style/DetailLabel"
+            android:text="@string/character_intelligence"
+            app:layout_constraintBottom_toTopOf="@+id/wisdom_label"
+            app:layout_constraintEnd_toStartOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constitution_label" />
+
+        <!-- Character Intelligence-->
+        <TextView
+            android:id="@+id/char_intelligence"
+            style="@style/ExtraWeatherMeasurement"
+            app:layout_constraintBottom_toBottomOf="@+id/intelligence_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="9" />
+
+
+        <!-- Wisdom label -->
+        <TextView
+            android:id="@+id/wisdom_label"
+            style="@style/DetailLabel"
+            android:text="@string/character_wisdom"
+            app:layout_constraintBottom_toTopOf="@+id/charisma_label"
+            app:layout_constraintEnd_toStartOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/intelligence_label" />
+
+        <!-- Character Wisdom -->
+        <TextView
+            android:id="@+id/char_wisdom"
+            style="@style/ExtraWeatherMeasurement"
+            app:layout_constraintBottom_toBottomOf="@id/wisdom_label"
+            app:layout_constraintLeft_toLeftOf="@id/horizontal_middle"
+            tools:text="10" />
+
+        <!-- Charisma label -->
+        <TextView
+            android:id="@+id/charisma_label"
+            style="@style/DetailLabel"
+            android:text="@string/character_charisma"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wisdom_label" />
+
+        <!-- Character Wisdom -->
+        <TextView
+            android:id="@+id/char_charisma"
+            style="@style/ExtraWeatherMeasurement"
+            app:layout_constraintBottom_toBottomOf="@id/charisma_label"
+            app:layout_constraintLeft_toLeftOf="@id/horizontal_middle"
+            tools:text="11" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -20,4 +20,12 @@
     <color name="grey_300">#E0E0E0</color>
     <color name="teal_51a">#ecf0f1</color>
     <color name="green_297">#d91824</color>
+
+
+    <color name="grey_50">#d0696464</color>
+    <color name="colorNegro">#000000</color>
+
+    <color name="colorBlanco">#ffffff</color>
+
+    <color name="transGris">#d0696464</color>
 </resources>

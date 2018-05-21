@@ -1,6 +1,7 @@
 package com.example.falconp.dndapp.data.database;
 
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -16,7 +17,10 @@ public interface CharacterDao {
      *  @return Character list of the player
      */
     @Query("SELECT * FROM character WHERE playerId = :playerId")
-    List<CharacterEntry> getCharacterById(int playerId);
+    LiveData<List<CharacterEntry>> getCharacterById(int playerId);
+
+    @Query("SELECT * FROM character")
+    LiveData<List<CharacterEntry>> loadAllCharacters();
 
     /**
      *  Insert a list of {@link CharacterEntry} into characters table. If there is a conflicting id

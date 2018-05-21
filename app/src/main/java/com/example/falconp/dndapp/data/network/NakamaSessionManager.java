@@ -103,10 +103,14 @@ public class NakamaSessionManager {
                     public Deferred<Session> call(Session session) throws Exception {
                         // Log In was successful
                         // Store session for later use
-                        SharedPreferences pref = activity.getPreferences(Context.MODE_PRIVATE);
-                        pref.edit()
-                                .putString("nk.session", session.getToken())
-                                .apply();
+                        String token = session.getToken();
+                        SharedPreferences pref = activity.getSharedPreferences("PREF_TOKEN", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+                        edit.putString("nk.session", session.getToken());
+
+                        if(pref.edit().putString("nk.session", token).commit()){
+                            System.out.println(pref.getString("nk.session", ""));
+                        }
 
                         return client.connect(session);
                     }
@@ -146,8 +150,10 @@ public class NakamaSessionManager {
                     public Deferred<Session> call(Session session) throws Exception {
                         // Registration has succeeded, try connecting again.
                         // Store the session for later use.
-                        SharedPreferences pref = activity.getPreferences(Context.MODE_PRIVATE);
-                        pref.edit().putString("nk.session", session.getToken()).apply();
+                        SharedPreferences pref = activity.getSharedPreferences("PREF_TOKEN", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+                        edit.putString("nk.session", session.getToken());
+                        edit.commit();
 
                         return client.connect(session);
                     }
@@ -168,7 +174,7 @@ public class NakamaSessionManager {
      * @param activity The Activity calling this method.
      */
     public void restoreSessionAndConnect(Activity activity) {
-        SharedPreferences pref = activity.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences pref = activity.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE);
         // Lets check if we can restore a cached session.
         String sessionString = pref.getString("nk.session", null);
         if (sessionString == null || sessionString.isEmpty()) {
@@ -210,7 +216,7 @@ public class NakamaSessionManager {
         });
 
         try {
-            deferred.join(2000);
+            deferred.join(3000);
         }
         catch (Exception ex){
             ex.printStackTrace();

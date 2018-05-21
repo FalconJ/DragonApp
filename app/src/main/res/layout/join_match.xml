@@ -1,0 +1,56 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/extra_stats"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/detail_accent_pane_background"
+        android:paddingBottom="@dimen/forecast_detail_vertical_padding"
+        android:paddingEnd="@dimen/forecast_detail_horizontal_padding"
+        android:paddingLeft="@dimen/forecast_detail_horizontal_padding"
+        android:paddingRight="@dimen/forecast_detail_horizontal_padding"
+        android:paddingStart="@dimen/forecast_detail_horizontal_padding"
+        android:paddingTop="@dimen/forecast_detail_vertical_padding">
+
+        <!-- This guideline divides the layout into a left and right half and is used for alignment -->
+        <android.support.constraint.Guideline
+            android:id="@+id/horizontal_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+            <EditText
+                android:id="@+id/field_room_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/room_id"
+                app:layout_constraintBottom_toTopOf="@+id/join_room_button"
+                app:layout_constraintLeft_toLeftOf="@+id/extra_stats"
+                app:layout_constraintTop_toTopOf="@+id/extra_stats"
+                app:layout_constraintVertical_bias="0.33"/>
+
+            <Button
+                android:id="@+id/join_room_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/enter_room"
+                android:theme="@style/ThemeOverlay.MyDarkButton"
+                app:layout_constraintTop_toBottomOf="@id/field_room_id"
+                />
+            <Button
+                android:id="@+id/create_room_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/create_room"
+                android:theme="@style/ThemeOverlay.MyDarkButton"
+                app:layout_constraintTop_toBottomOf="@id/join_room_button"
+                />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

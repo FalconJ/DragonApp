@@ -1,56 +1,84 @@
 package com.example.falconp.dndapp.ui.detail;
 
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.falconp.dndapp.AppExecutors;
+import com.example.falconp.dndapp.LogicCreation;
 import com.example.falconp.dndapp.R;
 import com.example.falconp.dndapp.data.database.CharacterEntry;
-import com.example.falconp.dndapp.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends AppCompatActivity {
-
-    /*
-     * This field is used for data binding. Normally, we would have to call findViewById many
-     * times to get references to the Views in this Activity. With data binding however, we only
-     * need to call DataBindingUtil.setContentView and pass in a Context and a layout, as we do
-     * in onCreate of this class. Then, we can access all of the Views in our layout
-     * programmatically without cluttering up the code with findViewById.
-     */
-    private ActivityDetailBinding mDetalBinding;
-    private DetailActivityViewModel mViewModel;
+    public static final String CHARACTER_EXTRA = "CHARACTER";
+    private CharacterEntry mCharacter;
+    ImageView mIconClass;
+    TextView mClass;
+    TextView mHitpoints;
+    TextView mLevel;
+    TextView mExperience;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail);
 
-        mDetalBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
-        mViewModel = ViewModelProviders.of(this).get(DetailActivityViewModel.class);
+        mIconClass = findViewById(R.id.class_icon);
+        mClass = findViewById(R.id.class_desc);
+        mHitpoints = findViewById(R.id.char_hp);
+        mLevel = findViewById(R.id.char_level);
+        mExperience = findViewById(R.id.char_exp);
 
-        // Observers changes in the CharacterEnty with the id mid
-        mViewModel.getCharacter().observe(this, characterEntry -> {
-            // If the character details change, update the UI
-            if(characterEntry != null)
-                bindCharacterToUI(characterEntry);
-        });
+        LogicCreation logic = new LogicCreation();
+        String charJson = getIntent().getExtras().getString(CHARACTER_EXTRA);
+        mCharacter = logic.getCharacter(charJson);
 
-        AppExecutors.getInstance().diskIO().execute(() -> {
-            try {
+        mIconClass.setImageResource(R.drawable.knight);
+        mClass.setText(mCharacter.getCharClass());
+        mHitpoints.setText(getString(R.string.character_hitpoints_now, 10, 12));
 
-                // Pretend this is the network loading data
-                Thread.sleep(3000);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
-        });
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText("General"));
+        tabLayout.addTab(tabLayout.newTab().setText("Stats"));
+        tabLayout.addTab(tabLayout.newTab().setText("Spells"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager = findViewById(R.id.pager);
+        final DetailPageAdapter adapter = new DetailPageAdapter(getSupportFragmentManager());
+
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(
+                new TabLayout.OnTabSelectedListener() {
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+                        viewPager.setCurrentItem(tab.getPosition());
+                    }
+
+                    @Override
+                    public void onTabUnselected(TabLayout.Tab tab) {
+
+                    }
+
+                    @Override
+                    public void onTabReselected(TabLayout.Tab tab) {
+
+                    }
+                }
+        );
     }
 
-
-    private void bindCharacterToUI(CharacterEntry charEnty){
-        // TODO: Finish UI binding
+    @Nullable
+    public CharacterEntry getCharacter() {
+        return mCharacter;
     }
 }

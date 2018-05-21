@@ -1,5 +1,6 @@
 package com.example.falconp.dndapp.ui.login;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.falconp.dndapp.R;
 import com.example.falconp.dndapp.data.network.NakamaSessionManager;
 import com.example.falconp.dndapp.databinding.ActivityLoginBinding;
+import com.example.falconp.dndapp.ui.menu.MainMenuActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -49,7 +51,9 @@ public class LogInActivity extends AppCompatActivity {
         //Check if user is signed in (non null) and update UI accordingly
         mSessionManager.restoreSessionAndConnect(this);
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        if(mSessionManager.getClient() != null){
+            updateUI(currentUser);
+        }
     }
 
     private void createAccount(String email, String password) {
@@ -147,6 +151,9 @@ public class LogInActivity extends AppCompatActivity {
             mLogInBinding.emailPasswordButtons.setVisibility(View.GONE);
             mLogInBinding.emailPasswordFields.setVisibility(View.GONE);
             mLogInBinding.signedInButtons.setVisibility(View.VISIBLE);
+
+            Intent logInIntent = new Intent(getApplicationContext(), MainMenuActivity.class);
+            startActivity(logInIntent);
         } else {
             mLogInBinding.emailPasswordButtons.setVisibility(View.VISIBLE);
             mLogInBinding.emailPasswordFields.setVisibility(View.VISIBLE);

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8215baa099e39632f3d3086b31c47b65",
+    "identityHash": "39a1c300cbaeae46c9867f1b9bb0f091",
     "entities": [
       {
         "tableName": "character",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `charName` TEXT, `charClass` TEXT, `background` TEXT, `race` TEXT, `alignment` TEXT, `playerId` INTEGER NOT NULL, `level` INTEGER NOT NULL, `exp` INTEGER NOT NULL, `str` INTEGER NOT NULL, `dex` INTEGER NOT NULL, `con` INTEGER NOT NULL, `intel` INTEGER NOT NULL, `wis` INTEGER NOT NULL, `cha` INTEGER NOT NULL, `modStr` INTEGER NOT NULL, `modDex` INTEGER NOT NULL, `modCon` INTEGER NOT NULL, `modInt` INTEGER NOT NULL, `modWis` INTEGER NOT NULL, `modCha` INTEGER NOT NULL, `proficiency` INTEGER NOT NULL, `inspiration` INTEGER NOT NULL, `perception` INTEGER NOT NULL, `armorClass` INTEGER NOT NULL, `initiative` INTEGER NOT NULL, `speed` INTEGER NOT NULL, `hp` INTEGER NOT NULL, `skill_1` TEXT, `skill_2` TEXT, `skill_3` TEXT, `skill_4` TEXT, `saveStr` INTEGER NOT NULL, `saveDex` INTEGER NOT NULL, `saveCon` INTEGER NOT NULL, `saveInt` INTEGER NOT NULL, `saveWis` INTEGER NOT NULL, `saveCha` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `charName` TEXT, `charClass` TEXT, `background` TEXT, `race` TEXT, `alignment` TEXT, `playerId` INTEGER NOT NULL, `level` INTEGER NOT NULL, `exp` INTEGER NOT NULL, `str` INTEGER NOT NULL, `dex` INTEGER NOT NULL, `con` INTEGER NOT NULL, `intel` INTEGER NOT NULL, `wis` INTEGER NOT NULL, `cha` INTEGER NOT NULL, `modStr` INTEGER NOT NULL, `modDex` INTEGER NOT NULL, `modCon` INTEGER NOT NULL, `modInt` INTEGER NOT NULL, `modWis` INTEGER NOT NULL, `modCha` INTEGER NOT NULL, `proficiency` INTEGER NOT NULL, `armorClass` INTEGER NOT NULL, `initiative` INTEGER NOT NULL, `speed` INTEGER NOT NULL, `hp` INTEGER NOT NULL, `skill_1` TEXT, `skill_2` TEXT, `saveStr` INTEGER NOT NULL, `saveDex` INTEGER NOT NULL, `saveCon` INTEGER NOT NULL, `saveInt` INTEGER NOT NULL, `saveWis` INTEGER NOT NULL, `saveCha` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -141,18 +141,6 @@
             "notNull": true
           },
           {
-            "fieldPath": "inspiration",
-            "columnName": "inspiration",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "perception",
-            "columnName": "perception",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
             "fieldPath": "armorClass",
             "columnName": "armorClass",
             "affinity": "INTEGER",
@@ -185,18 +173,6 @@
           {
             "fieldPath": "skill_2",
             "columnName": "skill_2",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "skill_3",
-            "columnName": "skill_3",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "skill_4",
-            "columnName": "skill_4",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -258,7 +234,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8215baa099e39632f3d3086b31c47b65\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"39a1c300cbaeae46c9867f1b9bb0f091\")"
     ]
   }
 }

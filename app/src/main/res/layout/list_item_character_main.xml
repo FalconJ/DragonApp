@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/main_touch_selector"
+    android:paddingBottom="@dimen/today_forecast_list_item_vertical_padding"
+    android:paddingTop="@dimen/today_forecast_list_item_vertical_padding">
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     - This Guideline divides the screen into a left half and a right half and is used to        -
+     - anchor the views to the middle of the screen.                                             -
+     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+             - Selected character name                                                               -
+             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <TextView
+        android:id="@+id/char_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/class_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Lorem Ipsum The Destroyer" />
+
+    <!-- Icon indicating class -->
+    <ImageView
+        android:id="@+id/class_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/horizontal_middle"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/icon_bard" />
+
+    <!-- Text that describes the class-->
+    <TextView
+        android:id="@+id/class_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/secondary_text"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintLeft_toLeftOf="@+id/class_icon"
+        app:layout_constraintRight_toRightOf="@+id/class_icon"
+        app:layout_constraintTop_toBottomOf="@+id/class_icon"
+        tools:text="Bard" />
+
+    <TextView
+        android:id="@+id/hp_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/primary_text"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/class_icon"
+        app:layout_constraintLeft_toRightOf="@id/horizontal_middle"
+        app:layout_constraintTop_toTopOf="@+id/class_icon"
+        tools:text="HP  " />
+
+    <TextView
+        android:id="@+id/char_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/primary_text"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/class_icon"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintLeft_toRightOf="@+id/hp_label"
+        app:layout_constraintTop_toTopOf="@+id/class_icon"
+        tools:text="12 / 12" />
+
+    <TextView
+        android:id="@+id/level_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/character_level"
+        android:textColor="@color/secondary_text"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/hp_label"
+        app:layout_constraintTop_toBottomOf="@id/hp_label" />
+
+    <TextView
+        android:id="@+id/char_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/secondary_text"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/class_desc"
+        app:layout_constraintLeft_toRightOf="@+id/level_label"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/exp_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/character_experience"
+        android:textColor="@color/secondary_text"
+        android:textSize="18sp"
+        app:layout_constraintRight_toRightOf="@id/char_hp"
+        app:layout_constraintTop_toBottomOf="@id/hp_label" />
+
+    <TextView
+        android:id="@+id/char_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/secondary_text"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/class_desc"
+        app:layout_constraintRight_toRightOf="@+id/char_hp"
+        tools:text="0" />
+
+</android.support.constraint.ConstraintLayout>
